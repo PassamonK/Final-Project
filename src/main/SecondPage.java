@@ -1,8 +1,6 @@
-package main;
+package Main;
 
 import gui.SecondPagePane;
-import gui.StartPane;
-import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
@@ -23,7 +21,7 @@ public class SecondPage extends Stage {
 		root.setPadding(new Insets(10));
 		root.setPrefHeight(600);
 		root.setPrefWidth(600);
-		String imagepath = ClassLoader.getSystemResource("bgfstpage.jpg").toString();
+		String imagepath = ClassLoader.getSystemResource("bgpage2.png").toString();
 		Image image = new Image(imagepath);
 		
 		BackgroundSize bgSize = new BackgroundSize(600,600,false,false,false,false);
@@ -32,9 +30,9 @@ public class SecondPage extends Stage {
 		root.setBackground(new Background(bgImgA));
 		root.getChildren().addAll(scp);
 		this.setScene(scene);
-		this.setTitle("Happy Fish");		
+		this.setTitle("Bad Lego");		
 		this.sizeToScene();
 		this.setResizable(false);
 		this.show();
 	}
-}
+}	

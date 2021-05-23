@@ -1,74 +1,70 @@
 package gui;
 
-import main.FirstPage;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
+import Main.HelpPage;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Pos;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
-import main.SecondPage;
-import main.main;
+import Main.SecondPage;
+import Main.Main;
 
 public class StartPagePane extends GridPane{
-	private ObservableList<StartPageButton> startPageButtonList = FXCollections.observableArrayList();
-	public static SecondPage sp ;
+	static SecondPage sp ;
+	private static HelpPage hp;
 	
-	public StartPagePane () {
-		// TODO implements the ItemPane's constructor
-		this.setAlignment(Pos.CENTER);
-        this.setVgap(30);
-        this.setHgap(30);
-        this.setPrefWidth(600);
-
-
-
-        StartPageButton start = new StartPageButton("START");
-        StartPageButton help = new StartPageButton("HELP");
-        StartPageButton exit = new StartPageButton("EXIT");
-        startPageButtonList.add(start);
-        startPageButtonList.add(help);
-        startPageButtonList.add(exit);
-
-        String imagepath = ClassLoader.getSystemResource("logo.png").toString();
-        ImageView image = new ImageView(imagepath);
-        image.setFitHeight(250);
-        image.setFitWidth(250);
-
-        this.addRow(0, image);
-        this.addRow(1,start);
-        this.addRow(2,help);
-        this.addRow(3,exit);
-
-		for (StartPageButton eachButton:startPageButtonList) {
-			if (eachButton.getText()=="START") {
-				eachButton.setOnAction(new EventHandler<ActionEvent>() {
-					public void handle(ActionEvent event) {
-						main.getFp().hide();
-						sp = new SecondPage();
-					}
-				});
-			}
-			if (eachButton.getText()=="HELP") {
-				eachButton.setOnAction(new EventHandler<ActionEvent>() {
-					public void handle(ActionEvent event) {
-						new FirstPage();
-					}
-				});
-			}
-			if (eachButton.getText()=="EXIT") {
-				eachButton.setOnAction(new EventHandler<ActionEvent>() {
-					public void handle(ActionEvent event) {
-						main.getFp().hide();;
-					}
-				});
-			}
-		}
-		
-	}
-
 	public static SecondPage getSp() {
 		return sp;
 	}
-}
+	public StartPagePane () {
+        this.setVgap(30);
+        this.setPrefWidth(600);
+        this.setMaxHeight(500);
+        this.setAlignment(Pos.BOTTOM_CENTER);
+
+        ImageView imageS = new ImageView(new Image("startbutton.png"));
+		imageS.setFitHeight(70);
+		imageS.setFitWidth(170);
+		ImageView imageH = new ImageView(new Image("helpbutton.png"));
+		imageH.setFitHeight(70);
+		imageH.setFitWidth(170);
+		ImageView imageE = new ImageView(new Image("exitbutton.png"));
+		imageE.setFitHeight(70);
+		imageE.setFitWidth(170);
+		
+        StartPageButton start = new StartPageButton(imageS);
+        StartPageButton help = new StartPageButton(imageH);
+        StartPageButton exit = new StartPageButton(imageE);
+
+
+        this.add(start,2,1);
+        this.add(help,1,2);
+        this.add(exit,0,3);
+
+		start.setOnAction(new EventHandler<ActionEvent>() {
+			public void handle(ActionEvent event) {
+				sp = new SecondPage();
+				Main.getFp().hide();				
+			}
+		});
+		
+		help.setOnAction(new EventHandler<ActionEvent>() {
+			public void handle(ActionEvent event) {
+				Main.getFp().hide();
+				hp = new HelpPage();		       
+			}
+		});
+			
+		exit.setOnAction(new EventHandler<ActionEvent>() {
+			public void handle(ActionEvent event) {
+				System.exit(0);
+			}
+		});
+			
+		
+		}
+	public static HelpPage getHp() {
+		return hp;
+	}
+	}

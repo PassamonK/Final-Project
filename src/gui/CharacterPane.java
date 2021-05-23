@@ -11,26 +11,28 @@ import javafx.scene.text.Font;
 
 public class CharacterPane extends GridPane{
 	
+	public static String playerselect;
+	
 	public CharacterPane () {
-		// TODO implements the ItemPane's constructor
 		this.setAlignment(Pos.BASELINE_CENTER);
 		this.setVgap(50);
 		this.setHgap(40);
 		this.setPrefWidth(600);
 		this.setMaxHeight(300);
-		ImageView image1 = new ImageView(new Image("char1.png"));
+		
+		ImageView image1 = new ImageView(new Image("c1_front.png"));
 		image1.setFitHeight(125);
 		image1.setFitWidth(125);
 		
-		ImageView image2 = new ImageView(new Image("char2.png"));
+		ImageView image2 = new ImageView(new Image("c2_front.png"));
 		image2.setFitHeight(125);
 		image2.setFitWidth(125);
 		
-		ImageView image3 = new ImageView(new Image("char3.png"));
+		ImageView image3 = new ImageView(new Image("c3_front.png"));
 		image3.setFitHeight(125);
 		image3.setFitWidth(125);
 		
-		ImageView image1selected = new ImageView(new Image("choose.png"));
+		ImageView image1selected = new ImageView(new Image("choose1.png"));
 		image1selected.setFitHeight(120);
 		image1selected.setFitWidth(120);
 		
@@ -51,6 +53,7 @@ public class CharacterPane extends GridPane{
 				character1.setGraphic(image1selected);
 				character2.setGraphic(image2);
 				character3.setGraphic(image3);
+				playerselect = "player1";
 			}
 		});
 		
@@ -61,6 +64,7 @@ public class CharacterPane extends GridPane{
 				character2.setGraphic(image2selected);
 				character1.setGraphic(image1);
 				character3.setGraphic(image3);
+				playerselect = "player2";
 			}
 		});
 		
@@ -70,6 +74,7 @@ public class CharacterPane extends GridPane{
 				character3.setGraphic(image3selected);
 				character1.setGraphic(image1);
 				character2.setGraphic(image2);
+				playerselect = "player3";
 			}
 		});
 		
@@ -81,6 +86,10 @@ public class CharacterPane extends GridPane{
 
 		this.addRow(1,character1,character2,character3);
 		
-		
+	}
+
+	public static String getPlayerselect() {
+		return playerselect;
 	} 
+	
 }

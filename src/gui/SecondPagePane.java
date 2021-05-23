@@ -6,6 +6,7 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.text.Font;
 
 public class SecondPagePane extends GridPane{
+
 	
 	public SecondPagePane () {
 		
@@ -15,7 +16,7 @@ public class SecondPagePane extends GridPane{
 		this.setMaxWidth(600);
 		this.setMaxHeight(600);
 		
-		StartPane start = new StartPane();
+		SecondPage start = new SecondPage();
 		CharacterPane cp = new CharacterPane();
 		
 		Label label = new Label("Please select your charactor");

@@ -1,4 +1,4 @@
-package main;
+package Main;
 
 import gui.StartPagePane;
 import javafx.geometry.Insets;
@@ -20,7 +20,7 @@ public class FirstPage extends Stage{
 		root.setPadding(new Insets(10));
 		root.setPrefHeight(600);
 		root.setPrefWidth(600);
-		String imagepath = ClassLoader.getSystemResource("bgfstpage.jpg").toString();
+		String imagepath = ClassLoader.getSystemResource("bgpage1.png").toString();
 		Image image = new Image(imagepath);
 		
 		BackgroundSize bgSize = new BackgroundSize(600,600,false,false,false,false);
@@ -30,18 +30,10 @@ public class FirstPage extends Stage{
 		root.getChildren().addAll(sp);
 		Scene scene = new Scene(root);
 		this.setScene(scene);
-		this.setTitle("Happy Fish");	
+		this.setTitle("Bad Lego");	
 		this.setResizable(false);
 		this.sizeToScene();
 		this.show();
 	}
 	
-
-
-//	Scene scene = new Scene(root);
-//	primaryStage.setScene(scene);
-//	primaryStage.setTitle("Harvest Simulator");		
-//	primaryStage.sizeToScene();
-//	primaryStage.setResizable(false);
-//	primaryStage.show();
 }

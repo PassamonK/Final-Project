@@ -1,6 +1,7 @@
 package gui;
 
 import javafx.scene.control.Button;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.Background;
 import javafx.scene.layout.BackgroundFill;
 import javafx.scene.layout.Border;
@@ -13,13 +14,13 @@ import javafx.scene.text.Font;
 import javafx.geometry.Insets;
 
 public class StartPageButton extends Button{
-	public StartPageButton(String buttonName){
-	    this.setText(buttonName);
-	    this.setPadding(new Insets(10));
-	    this.setBackground(new Background(new BackgroundFill(Color.LIGHTYELLOW, CornerRadii.EMPTY, Insets.EMPTY)));
-		this.setBorder(new Border(new BorderStroke(Color.RED, BorderStrokeStyle.DASHED,CornerRadii.EMPTY, BorderWidths.DEFAULT)));
+	public StartPageButton(ImageView image){
+	    this.setGraphic(image);
+	    this.setPadding(new Insets(5));
 	    this.setFont(new Font(30));
-		this.setPrefWidth(250);
-	    this.setPrefHeight(50);
+	    this.setBackground(new Background(new BackgroundFill(Color.TRANSPARENT, CornerRadii.EMPTY, Insets.EMPTY)));
+        this.setBorder(new Border(new BorderStroke(Color.TRANSPARENT, BorderStrokeStyle.SOLID,CornerRadii.EMPTY, BorderWidths.DEFAULT)));
+		this.setPrefWidth(400);
+	    this.setPrefHeight(70);
 	  }
 }
